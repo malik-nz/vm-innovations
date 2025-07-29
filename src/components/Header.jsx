@@ -7,22 +7,39 @@ const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [activeTab, setActiveTab] = useState("Home");
 
-  const scrollToSection = (id) => {
-    setActiveTab(id);
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+ const scrollToSection = (id) => {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth" });
+  }
+  setMobileMenuOpen(false); // Close mobile menu
+};
+
+
+ useEffect(() => {
+  const handleScroll = () => {
+    setIsSticky(window.scrollY > 300);
+
+    const sections = ["Home", "About", "Services", "Projects", "Contact"];
+    let currentSection = "Home";
+
+    for (let id of sections) {
+      const section = document.getElementById(id);
+      if (section) {
+        const { top } = section.getBoundingClientRect();
+        if (top <= 150) {
+          currentSection = id;
+        }
+      }
     }
-    setMobileMenuOpen(false); // close mobile menu after click
+
+    setActiveTab(currentSection);
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsSticky(window.scrollY > 300);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
 
   return (
     <header className="relative z-[999]">
