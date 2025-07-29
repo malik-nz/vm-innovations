@@ -37,7 +37,7 @@ export default function Banner() {
   }, [current]);
 
   return (
-    <div className="relative w-full h-[60vh] md:h-screen overflow-hidden">
+    <div id="Home" className="relative w-full h-[60vh] md:h-screen overflow-hidden">
       {slides.map((slide, index) => (
         <div
           key={slide.id}

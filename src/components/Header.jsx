@@ -5,6 +5,13 @@ import { Container, ShineButton } from ".";
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <header>
       <section className="bg-[#0859D7] text-white text-sm font-medium">
@@ -93,14 +100,14 @@ const Header = () => {
               {["Home", "About", "Services", "Projects", "Contact"].map(
                 (item, i) => (
                   <li key={i}>
-                    <a
-                      href="#"
-                      className={`hover:text-[#0859D7] transition ${
+                    <span
+                      onClick={() => scrollToSection(item)}
+                      className={`hover:text-[#0859D7] transition cursor-pointer ${
                         item === "Home" ? "text-[#0859D7]" : ""
                       }`}
                     >
                       {item}
-                    </a>
+                    </span>
                   </li>
                 )
               )}

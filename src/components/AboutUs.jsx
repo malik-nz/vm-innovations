@@ -4,7 +4,7 @@ import { Container } from ".";
 
 const AboutUs = () => {
   return (
-    <section className="bg-white py-12 sm:py-16">
+    <section id="About" className="bg-white py-12 sm:py-16">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-10">
           {/* Left: Image Section */}

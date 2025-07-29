@@ -3,7 +3,7 @@ import { Container, ZoomButton } from ".";
 
 const Services = () => {
   return (
-    <section className="dark:bg-dark">
+    <section id="Services" className="dark:bg-dark">
       <Container>
         <div className="-mx-4 flex flex-wrap mb-8">
           <div className="w-full px-4">

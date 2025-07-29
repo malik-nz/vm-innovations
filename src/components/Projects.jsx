@@ -3,7 +3,7 @@ import { Container } from '.'
 
 const Projects = () => {
   return (
-   <section className="dark:bg-dark">
+   <section id='Projects' className="dark:bg-dark">
       <Container>
         <div className="-mx-4 flex flex-wrap mb-8">
           <div className="w-full px-4">
