@@ -37,7 +37,7 @@ export default function Banner() {
   }, [current]);
 
   return (
-    <div id="Home" className="relative w-full h-[60vh] md:h-screen overflow-hidden">
+    <div className="relative w-full h-[60vh] md:h-screen overflow-hidden">
       {slides.map((slide, index) => (
         <div
           key={slide.id}
@@ -64,7 +64,7 @@ export default function Banner() {
         onClick={prevSlide}
         className="absolute cursor-pointer top-1/2 left-2 sm:left-4 -translate-y-1/2 bg-white text-[#0859D7] p-4 sm:p-3 rounded-full z-20 shadow-md hover:bg-[#0859D7] hover:text-white transition-all"
       >
-        <i class="fa-solid fa-chevron-left text-3xl sm:text-2xl"></i>
+        <i className="fa-solid fa-chevron-left text-3xl sm:text-2xl"></i>
       </button>
 
       {/* Right arrow */}
@@ -72,7 +72,7 @@ export default function Banner() {
         onClick={nextSlide}
         className="absolute cursor-pointer top-1/2 right-2 sm:right-4 -translate-y-1/2 bg-white text-[#0859D7] p-4 sm:p-3 rounded-full z-20 shadow-md hover:bg-[#0859D7] hover:text-white transition-all"
       >
-        <i class="fa-solid fa-chevron-right text-3xl sm:text-2xl"></i>
+        <i className="fa-solid fa-chevron-right text-3xl sm:text-2xl"></i>
       </button>
 
       {/* Dots indicator */}

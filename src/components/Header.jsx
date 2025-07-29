@@ -7,13 +7,18 @@ const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [activeTab, setActiveTab] = useState("Home");
 
- const scrollToSection = (id) => {
-  const el = document.getElementById(id);
-  if (el) {
-    el.scrollIntoView({ behavior: "smooth" });
+const scrollToSection = (id) => {
+  if (id === "Home") {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } else {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
   }
-  setMobileMenuOpen(false); // Close mobile menu
+  setMobileMenuOpen(false);
 };
+
 
 
  useEffect(() => {
