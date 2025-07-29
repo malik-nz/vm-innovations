@@ -49,5 +49,64 @@ body {
 }
 
 
+@keyframes vibrate {
+  0% { transform: translate(0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(-1px, -1px); }
+  60% { transform: translate(1px, 1px); }
+  80% { transform: translate(1px, -1px); }
+  100% { transform: translate(0); }
+}
+
+.vibrate-hover:hover {
+  animation: vibrate 0.3s linear infinite;
+}
+.group:hover .vibrate-on-group-hover {
+  animation: vibrate 0.3s linear infinite;
+}
+
+
+.wave-hover {
+  position: relative;
+  display: inline-block;
+}
+
+.wave-hover:hover::before,
+.wave-hover:hover::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 160%; /* Make it larger */
+  height: 160%;
+  border-radius: 50%;
+  background: rgba(29, 155, 240, 0.3); /* Light blue, more visible */
+  transform: translate(-50%, -50%) scale(0.7); /* Start a bit larger */
+  animation: wave-pulse 2s ease-out infinite;
+  z-index: 0;
+}
+
+.wave-hover:hover::after {
+  animation-delay: 1s;
+}
+
+@keyframes wave-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.7);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(3.5); /* Bigger wave expansion */
+    opacity: 0;
+  }
+}
+
+.wave-hover i {
+  position: relative;
+  z-index: 1;
+}
+
+
+
 
 

@@ -11,24 +11,24 @@ const Header = () => {
         <Container>
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-2">
             {/* Phone */}
-            <div className="flex items-center gap-2">
-           <i className="fa fa-phone"></i>
+            <div className="flex items-center gap-2 group cursor-pointer">
+              <i className="fa fa-phone vibrate-on-group-hover"></i>
               <span>(64) 2238 09022</span>
             </div>
 
             <span className="hidden md:block h-4 w-px bg-white" />
 
             {/* Location */}
-            <div className="flex items-center gap-2">
-             <i className="fas fa-map-marker-alt"></i>
+            <div className="flex items-center gap-2 group cursor-pointer">
+              <i className="fas fa-map-marker-alt vibrate-on-group-hover"></i>
               <span>12 Wintere Road, Auckland, New Zealand</span>
             </div>
 
             <span className="hidden md:block h-4 w-px bg-white" />
 
             {/* Email */}
-            <div className="flex items-center gap-2">
-             <i className="fas fa-envelope"></i>
+            <div className="flex items-center gap-2 group cursor-pointer">
+              <i className="fas fa-envelope vibrate-on-group-hover"></i>
               <span>Vishal@vminnovations.co.nz</span>
             </div>
 
@@ -41,7 +41,7 @@ const Header = () => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
-                className="hover:text-gray-200"
+                className="wave-hover"
               >
                 <i className="fab fa-facebook-f"></i>
               </a>
@@ -50,16 +50,16 @@ const Header = () => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Twitter"
-                className="hover:text-gray-200"
+                className="wave-hover"
               >
-                  <i className="fab fa-twitter"></i>
+                <i className="fab fa-twitter"></i>
               </a>
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
-                className="hover:text-gray-200"
+                className="wave-hover"
               >
                 <i className="fab fa-instagram"></i>
               </a>
@@ -68,7 +68,7 @@ const Header = () => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
-                className="hover:text-gray-200"
+                className="wave-hover"
               >
                 <i className="fab fa-linkedin-in"></i>
               </a>
@@ -109,7 +109,7 @@ const Header = () => {
                   aria-label="Search"
                   className="text-gray-600 dark:text-gray-300 hover:text-[#0859D7] transition"
                 >
-                 <i className='fa fa-search'></i>
+                  <i className="fa fa-search"></i>
                 </button>
               </li>
             </ul>
@@ -146,7 +146,7 @@ const Header = () => {
               aria-label="Close Menu"
               className="hover:text-[#0859D7]"
             >
-            <i class="fa-solid fa-xmark cursor-pointer"></i>
+              <i class="fa-solid fa-xmark cursor-pointer"></i>
             </button>
           </div>
 
@@ -166,8 +166,8 @@ const Header = () => {
             )}
             <li>
               <button className="flex items-center gap-2 text-gray-700 hover:text-[#0859D7]">
-              <i className="fa fa-search"></i>
-              Search
+                <i className="fa fa-search"></i>
+                Search
               </button>
             </li>
             <li>
