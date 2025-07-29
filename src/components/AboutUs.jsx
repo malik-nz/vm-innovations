@@ -64,7 +64,13 @@ const AboutUs = () => {
         </div>
 
         <div className="text-center mt-10">
-          <ZoomButton label="More Details" />
+        <button
+  className="cursor-pointer text-white bg-gradient-to-r from-[#0859D7] to-[#4e9ff9] animated-gradient font-semibold rounded-3xl text-lg px-10 py-3 transition-all duration-300"
+>
+  More Details
+</button>
+
+
         </div>
       </Container>
     </section>

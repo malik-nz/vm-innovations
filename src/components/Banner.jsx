@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const slides = [
   {
@@ -63,17 +62,17 @@ export default function Banner() {
       {/* Left arrow */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-2 sm:left-4 -translate-y-1/2 bg-white text-[#0859D7] p-4 sm:p-3 rounded-full z-20 shadow-md hover:bg-[#0859D7] hover:text-white transition-all"
+        className="absolute cursor-pointer top-1/2 left-2 sm:left-4 -translate-y-1/2 bg-white text-[#0859D7] p-4 sm:p-3 rounded-full z-20 shadow-md hover:bg-[#0859D7] hover:text-white transition-all"
       >
-        <FaChevronLeft className="text-3xl sm:text-2xl" />
+        <i class="fa-solid fa-chevron-left text-3xl sm:text-2xl"></i>
       </button>
 
       {/* Right arrow */}
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-2 sm:right-4 -translate-y-1/2 bg-white text-[#0859D7] p-4 sm:p-3 rounded-full z-20 shadow-md hover:bg-[#0859D7] hover:text-white transition-all"
+        className="absolute cursor-pointer top-1/2 right-2 sm:right-4 -translate-y-1/2 bg-white text-[#0859D7] p-4 sm:p-3 rounded-full z-20 shadow-md hover:bg-[#0859D7] hover:text-white transition-all"
       >
-        <FaChevronRight className="text-3xl sm:text-2xl" />
+        <i class="fa-solid fa-chevron-right text-3xl sm:text-2xl"></i>
       </button>
 
       {/* Dots indicator */}

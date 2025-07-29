@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-const ZoomButton =({label})=> {
+const ZoomButton = ({ label }) => {
   const [zoomClass, setZoomClass] = useState("");
 
   const handleMouseEnter = () => {
@@ -14,13 +14,19 @@ const ZoomButton =({label})=> {
 
   return (
     <button
-      className={`zoom-btn cursor-pointer ${zoomClass} text-white bg-[#0859D7] font-semibold rounded-3xl text-lg px-10 py-3 relative overflow-hidden shadow-md transition-all duration-300`}
+      className={`zoom-btn cursor-pointer ${zoomClass} 
+        text-white hover:text-[#0859D7] 
+        bg-[#0859D7] hover:bg-white 
+        border border-white 
+        font-semibold rounded-3xl text-lg px-10 py-3 
+        relative overflow-hidden shadow-md 
+        transition-all duration-300`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-     {label}
+      {label}
     </button>
   );
-}
+};
 
 export default ZoomButton;

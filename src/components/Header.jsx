@@ -1,22 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import { IoLocation } from "react-icons/io5";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaLinkedinIn,
-  FaPhoneAlt,
-} from "react-icons/fa";
-import { AiFillInstagram } from "react-icons/ai";
-import { ImSearch } from "react-icons/im";
-import { MdEmail } from "react-icons/md";
-import { IoClose } from "react-icons/io5";
-import { FiMenu } from "react-icons/fi";
 import { Container, ShineButton } from ".";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
 
   return (
     <header>
@@ -25,7 +12,7 @@ const Header = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-2">
             {/* Phone */}
             <div className="flex items-center gap-2">
-              <FaPhoneAlt size={14} />
+           <i className="fa fa-phone"></i>
               <span>(64) 2238 09022</span>
             </div>
 
@@ -33,7 +20,7 @@ const Header = () => {
 
             {/* Location */}
             <div className="flex items-center gap-2">
-              <IoLocation size={16} />
+             <i className="fas fa-map-marker-alt"></i>
               <span>12 Wintere Road, Auckland, New Zealand</span>
             </div>
 
@@ -41,7 +28,7 @@ const Header = () => {
 
             {/* Email */}
             <div className="flex items-center gap-2">
-              <MdEmail size={16} />
+             <i className="fas fa-envelope"></i>
               <span>Vishal@vminnovations.co.nz</span>
             </div>
 
@@ -56,7 +43,7 @@ const Header = () => {
                 aria-label="Facebook"
                 className="hover:text-gray-200"
               >
-                <FaFacebookF />
+                <i className="fab fa-facebook-f"></i>
               </a>
               <a
                 href="https://twitter.com"
@@ -65,7 +52,7 @@ const Header = () => {
                 aria-label="Twitter"
                 className="hover:text-gray-200"
               >
-                <FaTwitter />
+                  <i className="fab fa-twitter"></i>
               </a>
               <a
                 href="https://instagram.com"
@@ -74,7 +61,7 @@ const Header = () => {
                 aria-label="Instagram"
                 className="hover:text-gray-200"
               >
-                <AiFillInstagram />
+                <i className="fab fa-instagram"></i>
               </a>
               <a
                 href="https://linkedin.com"
@@ -83,7 +70,7 @@ const Header = () => {
                 aria-label="LinkedIn"
                 className="hover:text-gray-200"
               >
-                <FaLinkedinIn />
+                <i className="fab fa-linkedin-in"></i>
               </a>
             </div>
           </div>
@@ -122,7 +109,7 @@ const Header = () => {
                   aria-label="Search"
                   className="text-gray-600 dark:text-gray-300 hover:text-[#0859D7] transition"
                 >
-                  <ImSearch size={16} />
+                 <i className='fa fa-search'></i>
                 </button>
               </li>
             </ul>
@@ -134,13 +121,13 @@ const Header = () => {
                 className="text-gray-700 dark:text-gray-300 hover:text-[#0859D7]"
                 aria-label="Open Menu"
               >
-                <FiMenu size={24} />
+                <i className="fa-solid fa-bars cursor-pointer"></i>
               </button>
             </div>
 
             {/* Desktop CTA */}
             <div className="hidden lg:block">
-              <ShineButton label='Contact us!' />
+              <ShineButton label="Contact us!" />
             </div>
           </div>
         </Container>
@@ -157,8 +144,9 @@ const Header = () => {
             <button
               onClick={() => setMobileMenuOpen(false)}
               aria-label="Close Menu"
+              className="hover:text-[#0859D7]"
             >
-              <IoClose size={24} />
+            <i class="fa-solid fa-xmark cursor-pointer"></i>
             </button>
           </div>
 
@@ -178,8 +166,8 @@ const Header = () => {
             )}
             <li>
               <button className="flex items-center gap-2 text-gray-700 hover:text-[#0859D7]">
-                <ImSearch size={16} />
-                Search
+              <i className="fa fa-search"></i>
+              Search
               </button>
             </li>
             <li>
