@@ -1,0 +1,43 @@
+.shine-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 20%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+.shine-left-to-right::before {
+  left: -100%;
+  animation: shine-left-to-right 0.8s forwards;
+}
+
+.shine-right-to-left::before {
+  left: 125%;
+  animation: shine-right-to-left 0.8s forwards;
+}
+
+@keyframes shine-left-to-right {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 125%;
+  }
+}
+
+@keyframes shine-right-to-left {
+  from {
+    left: 125%;
+  }
+  to {
+    left: -100%;
+  }
+}

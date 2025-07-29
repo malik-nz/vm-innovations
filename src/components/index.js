@@ -1,0 +1,8 @@
+export {default as Header} from "./Header"
+export {default as Footer} from "./Footer"
+export {default as Banner} from "./Banner"
+export {default as AboutUs} from "./AboutUs"
+export {default as Services} from "./Services"
+export {default as Container} from "./Container"
+export {default as ShineButton} from "./ShineButton"
+export {default as ZoomButton} from "./ZoomButton"
