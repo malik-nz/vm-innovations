@@ -3,96 +3,111 @@ import React, { useEffect, useState } from "react";
 import { Container, ShineButton } from ".";
 
 const Header = () => {
+  const [showSearchBar, setShowSearchBar] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const [activeTab, setActiveTab] = useState("Home");
 
-const scrollToSection = (id) => {
-  if (id === "Home") {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  } else {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  }
-  setMobileMenuOpen(false);
-};
-
-
-
- useEffect(() => {
-  const handleScroll = () => {
-    setIsSticky(window.scrollY > 300);
-
-    const sections = ["Home", "About", "Services", "Projects", "Contact"];
-    let currentSection = "Home";
-
-    for (let id of sections) {
-      const section = document.getElementById(id);
-      if (section) {
-        const { top } = section.getBoundingClientRect();
-        if (top <= 150) {
-          currentSection = id;
-        }
+  const scrollToSection = (id) => {
+    if (id === "Home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
       }
     }
-
-    setActiveTab(currentSection);
+    setMobileMenuOpen(false);
   };
 
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > 300);
 
+      const sections = ["Home", "About", "Services", "Projects", "Contact"];
+      let currentSection = "Home";
+
+      for (let id of sections) {
+        const section = document.getElementById(id);
+        if (section) {
+          const { top } = section.getBoundingClientRect();
+          if (top <= 150) {
+            currentSection = id;
+          }
+        }
+      }
+
+      setActiveTab(currentSection);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header className="relative z-[999]">
-      {/* Top Bar */}
-      <section className="bg-[#0859D7] text-white text-sm font-medium">
+      {showSearchBar ? (
         <Container>
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-2">
-            <div className="flex items-center gap-2 group cursor-pointer">
-              <i className="fa fa-phone vibrate-on-group-hover"></i>
-              <span>(64) 2238 09022</span>
-            </div>
+          <div class="flex items-center border-b border-gray-300 px-4 py-2 w-full bg-white">
+            <input
+              type="text"
+              placeholder="Search here..."
+              class="flex-grow outline-none text-gray-700 placeholder:text-gray-400 bg-transparent"
+            />
 
-            <span className="hidden md:block h-4 w-px bg-white" />
-
-            <div className="flex items-center gap-2 group cursor-pointer">
-              <i className="fas fa-map-marker-alt vibrate-on-group-hover"></i>
-              <span>12 Wintere Road, Auckland, New Zealand</span>
-            </div>
-
-            <span className="hidden md:block h-4 w-px bg-white" />
-
-            <div className="flex items-center gap-2 group cursor-pointer">
-              <i className="fas fa-envelope vibrate-on-group-hover"></i>
-              <span>vishal@vminnovations.co.nz</span>
-            </div>
-
-            <span className="hidden md:block h-4 w-px bg-white" />
-
-            <div className="flex items-center gap-4 text-base">
-              {["facebook-f", "twitter", "instagram", "linkedin-in"].map(
-                (icon, i) => (
-                  <a
-                    key={i}
-                    href="#"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="wave-hover"
-                  >
-                    <i className={`fab fa-${icon}`}></i>
-                  </a>
-                )
-              )}
+            <div class="flex items-center space-x-4">
+              <i class="fas fa-search text-gray-600 hover:text-black cursor-pointer"></i>
+              <span onClick={() => setShowSearchBar(false)}>
+                <i class="fas fa-xmark text-gray-600 hover:text-black cursor-pointer"></i>
+              </span>
             </div>
           </div>
         </Container>
-      </section>
+      ) : (
+        <section className="bg-[#0859D7] text-white text-sm font-medium">
+          <Container>
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-2">
+              <div className="flex items-center gap-2 group cursor-pointer">
+                <i className="fa fa-phone vibrate-on-group-hover"></i>
+                <span>(64) 2238 09022</span>
+              </div>
 
-      {/* Main Nav */}
+              <span className="hidden md:block h-4 w-px bg-white" />
+
+              <div className="flex items-center gap-2 group cursor-pointer">
+                <i className="fas fa-map-marker-alt vibrate-on-group-hover"></i>
+                <span>12 Wintere Road, Auckland, New Zealand</span>
+              </div>
+
+              <span className="hidden md:block h-4 w-px bg-white" />
+
+              <div className="flex items-center gap-2 group cursor-pointer">
+                <i className="fas fa-envelope vibrate-on-group-hover"></i>
+                <span>vishal@vminnovations.co.nz</span>
+              </div>
+
+              <span className="hidden md:block h-4 w-px bg-white" />
+
+              <div className="flex items-center gap-4 text-base">
+                {["facebook-f", "twitter", "instagram", "linkedin-in"].map(
+                  (icon, i) => (
+                    <a
+                      key={i}
+                      href="#"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="wave-hover"
+                    >
+                      <i className={`fab fa-${icon}`}></i>
+                    </a>
+                  )
+                )}
+              </div>
+            </div>
+          </Container>
+        </section>
+      )}
+
       <nav
         className={`bg-white border-b border-gray-200 dark:bg-gray-800 shadow-sm transition-all duration-300 ${
           isSticky
@@ -128,7 +143,11 @@ const scrollToSection = (id) => {
               )}
 
               <li>
-                <button className="text-gray-600 dark:text-gray-300 hover:text-[#0859D7] transition">
+                <button
+                  type="button"
+                  onClick={() => setShowSearchBar(prev => !prev)}
+                  className="text-gray-600 dark:text-gray-300 hover:text-[#0859D7] transition cursor-pointer"
+                >
                   <i className="fa fa-search"></i>
                 </button>
               </li>
@@ -147,7 +166,10 @@ const scrollToSection = (id) => {
 
             {/* Desktop CTA */}
             <div className="hidden lg:block">
-              <ShineButton label="Contact us!" />
+              <ShineButton
+                onClick={() => scrollToSection("Contact")}
+                label="Contact us!"
+              />
             </div>
           </div>
         </Container>
