@@ -132,7 +132,7 @@ const Footer = () => {
                 12 Wintere Road, Auckland, New Zealand
               </p>
               <p className="border-b border-[#0859D7] pb-2">
-                <i className="fas fa-phone-alt text-[#0859D7] mr-2"></i>+64
+                <i className="fas fa-phone text-[#0859D7] mr-2"></i>+64
                 223809022
               </p>
               <p className="border-b border-[#0859D7] pb-2">
