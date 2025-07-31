@@ -1,12 +1,14 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Container, ShineButton } from ".";
+import { socialLinks } from "@/helpers";
 
 const Header = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const [activeTab, setActiveTab] = useState("Home");
+  const [serach, setSearch] = useState("Home");
 
   const scrollToSection = (id) => {
     if (id === "Home") {
@@ -53,10 +55,14 @@ const Header = () => {
               type="text"
               placeholder="Search here..."
               class="flex-grow outline-none text-gray-700 placeholder:text-gray-400 bg-transparent"
+              onChange={(e) => setSearch(e.target.value)}
+              value={serach}
             />
 
             <div class="flex items-center space-x-4">
-              <i class="fas fa-search text-gray-600 hover:text-black cursor-pointer"></i>
+              <span>
+                <i class="fas fa-search text-gray-600 hover:text-black cursor-pointer"></i>
+              </span>
               <span onClick={() => setShowSearchBar(false)}>
                 <i class="fas fa-xmark text-gray-600 hover:text-black cursor-pointer"></i>
               </span>
@@ -87,21 +93,18 @@ const Header = () => {
               </div>
 
               <span className="hidden md:block h-4 w-px bg-white" />
-
               <div className="flex items-center gap-4 text-base">
-                {["facebook-f", "twitter", "instagram", "linkedin-in"].map(
-                  (icon, i) => (
-                    <a
-                      key={i}
-                      href="#"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="wave-hover"
-                    >
-                      <i className={`fab fa-${icon}`}></i>
-                    </a>
-                  )
-                )}
+                {socialLinks?.map((item) => (
+                  <a
+                    key={item?.label}
+                    href={item?.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="wave-hover cursor-pointer"
+                  >
+                    <i className={`${item?.icon}`}></i>
+                  </a>
+                ))}
               </div>
             </div>
           </Container>
@@ -145,7 +148,7 @@ const Header = () => {
               <li>
                 <button
                   type="button"
-                  onClick={() => setShowSearchBar(prev => !prev)}
+                  onClick={() => setShowSearchBar((prev) => !prev)}
                   className="text-gray-600 dark:text-gray-300 hover:text-[#0859D7] transition cursor-pointer"
                 >
                   <i className="fa fa-search"></i>
