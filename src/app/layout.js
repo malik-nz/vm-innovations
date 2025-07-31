@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Footer, Header } from "@/components";
+import { Footer, Header, ScrollToTop } from "@/components";
 import { Roboto } from "next/font/google";
 import Script from "next/script";
 
@@ -72,6 +72,7 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <Footer />
+        <ScrollToTop />
         <Script
           id="tawk-to"
           strategy="afterInteractive"
