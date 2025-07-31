@@ -1,16 +1,18 @@
 import "./globals.css";
 import { Footer, Header } from "@/components";
-import {Roboto } from 'next/font/google';
+import { Roboto } from "next/font/google";
+import Script from "next/script";
 
 const roboto = Roboto({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'], // You can customize this
-  display: 'swap',
+  subsets: ["latin"],
+  weight: ["400", "500", "700"], // You can customize this
+  display: "swap",
 });
 
 export const metadata = {
   title: "VM Innovations",
-  description: "VMInnovation Agency provides cutting-edge IT solutions, including web and mobile development, digital marketing, cloud infrastructure, and cybersecurity services. We turn your ideas into digital success.",
+  description:
+    "VMInnovation Agency provides cutting-edge IT solutions, including web and mobile development, digital marketing, cloud infrastructure, and cybersecurity services. We turn your ideas into digital success.",
   keywords: [
     "VMInnovation Agency",
     "Web Development",
@@ -21,7 +23,7 @@ export const metadata = {
     "IT Solutions",
     "Tech Agency",
     "Custom Software Development",
-    "Scalable Infrastructure"
+    "Scalable Infrastructure",
   ].join(", "),
   authors: [{ name: "VMInnovation Agency", url: "https://vminnovation.com" }],
   creator: "VMInnovation Agency",
@@ -54,11 +56,10 @@ export const metadata = {
   },
 };
 
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-       <head>
+      <head>
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
@@ -71,6 +72,23 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <Footer />
+        <Script
+          id="tawk-to"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+              (function(){
+              var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+              s1.async=true;
+              s1.src='https://embed.tawk.to/688b596fa71a56192ddaa5bb/1j1g5anl4';
+              s1.charset='UTF-8';
+              s1.setAttribute('crossorigin','*');
+              s0.parentNode.insertBefore(s1,s0);
+              })();
+            `,
+          }}
+        />
       </body>
     </html>
   );
