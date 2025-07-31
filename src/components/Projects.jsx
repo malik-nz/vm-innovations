@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 import { Container } from ".";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const items = [
   {
@@ -35,6 +37,15 @@ const items = [
   },
 ];
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay: i * 0.2 },
+  }),
+};
+
 const Projects = () => {
   return (
     <section id="Projects" className="dark:bg-dark">
@@ -66,9 +77,14 @@ const Projects = () => {
         <Container>
           <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {items.map((project, idx) => (
-              <div
+              <motion.div
                 key={idx}
                 className="relative cursor-pointer w-full h-[240px] sm:h-[265px] overflow-hidden shadow-lg group"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                custom={idx}
+                variants={fadeUp}
               >
                 {/* Background Image */}
                 <Image
@@ -86,12 +102,12 @@ const Projects = () => {
 
                 {/* Text content */}
                 <div className="absolute bottom-4 left-4 right-4 text-white z-[3]">
-                  <p className="text-sm sm:text-base">{project?.title}</p>
+                  <p className="text-sm sm:text-base">{project.title}</p>
                   <h3 className="text-base sm:text-lg md:text-xl font-bold">
-                    {project?.description}
+                    {project.description}
                   </h3>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </Container>

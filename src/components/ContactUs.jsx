@@ -1,11 +1,24 @@
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
 import { Container } from ".";
+
+const fadeIn = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+};
 
 const ContactUs = () => {
   return (
     <section id="Contact" className="dark:bg-dark">
       <Container>
-        <div className="-mx-4 flex flex-wrap my-8">
+        <motion.div
+          className="-mx-4 flex flex-wrap my-8"
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           <div className="w-full px-4">
             <div className="mx-auto max-w-[510px] text-center">
               <h4 className="text-[#0859D7] text-lg sm:text-xl font-semibold mb-2">
@@ -14,7 +27,7 @@ const ContactUs = () => {
               <h2 className="mb-3 text-3xl font-bold leading-[1.2] text-dark dark:text-white sm:text-4xl md:text-[40px]">
                 Contact for any query
               </h2>
-              <p class="text-base text-body-color dark:text-dark-6">
+              <p className="text-base text-body-color dark:text-dark-6">
                 The contact form is currently inactive. Get a functional and
                 working contact form with Ajax & PHP in a few minutes. Just copy
                 and paste the files, add a little code and you're done.{" "}
@@ -22,27 +35,31 @@ const ContactUs = () => {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </Container>
 
-        <section className="relative w-full py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Full background starting from top */}
+      <section className="relative w-full py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Background */}
         <div className="absolute top-0 left-0 w-full h-[60%]">
           <div className="absolute inset-0 bg-[url('/assets/carousel-1.jpg')] bg-cover bg-center opacity-20" />
           <div className="absolute inset-0 bg-[#5050F0]/80 mix-blend-multiply" />
         </div>
 
-        {/* Foreground Content */}
         <Container>
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          {/* Contact Cards */}
+          <motion.div
+            className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 mb-10"
+            variants={fadeIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             <div className="bg-white rounded-lg shadow p-6 flex items-start gap-4">
               <div className="bg-[#0859D7]/10 text-[#0859D7] p-3 rounded-full">
                 <i className="fas fa-map-marker-alt"></i>
               </div>
               <div>
-                <h4 className="text-lg font-semibold text-[#0859D7]">
-                  Address
-                </h4>
+                <h4 className="text-lg font-semibold text-[#0859D7]">Address</h4>
                 <p className="text-sm text-gray-700">
                   12 Wintere Road, Auckland, New Zealand
                 </p>
@@ -53,9 +70,7 @@ const ContactUs = () => {
                 <i className="fa fa-phone"></i>
               </div>
               <div>
-                <h4 className="text-lg font-semibold text-[#0859D7]">
-                  Call Us
-                </h4>
+                <h4 className="text-lg font-semibold text-[#0859D7]">Call Us</h4>
                 <p className="text-sm text-gray-700">+64 223809022</p>
               </div>
             </div>
@@ -64,18 +79,22 @@ const ContactUs = () => {
                 <i className="fas fa-envelope"></i>
               </div>
               <div>
-                <h4 className="text-lg font-semibold text-[#0859D7]">
-                  Email Us
-                </h4>
+                <h4 className="text-lg font-semibold text-[#0859D7]">Email Us</h4>
                 <p className="text-sm text-gray-700">
                   Vishal@vminnovations.co.nz
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Map and Contact Form */}
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Map & Form */}
+          <motion.div
+            className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8"
+            variants={fadeIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             {/* Google Map */}
             <div className="w-full h-full rounded-lg overflow-hidden shadow">
               <iframe
@@ -120,7 +139,7 @@ const ContactUs = () => {
                 </button>
               </form>
             </div>
-          </div>
+          </motion.div>
         </Container>
       </section>
     </section>
@@ -128,5 +147,3 @@ const ContactUs = () => {
 };
 
 export default ContactUs;
-
-

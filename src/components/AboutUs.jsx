@@ -1,6 +1,13 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import { Container } from ".";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+};
 
 const AboutUs = () => {
   return (
@@ -8,7 +15,13 @@ const AboutUs = () => {
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-10">
           {/* Left: Image Section */}
-          <div className="relative w-full flex justify-center md:block">
+          <motion.div
+            className="relative w-full flex justify-center md:block"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeUp}
+          >
             {/* First (always visible) image */}
             <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-xl overflow-hidden shadow-lg z-0">
               <Image
@@ -28,10 +41,16 @@ const AboutUs = () => {
                 className="object-cover rounded-xl"
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* Right: Text Content */}
-          <div className="text-left">
+          <motion.div
+            className="text-left"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeUp}
+          >
             <h4 className="text-[#0859D7] text-lg sm:text-xl font-semibold mb-2">
               About Us
             </h4>
@@ -59,15 +78,20 @@ const AboutUs = () => {
               value, VMInnovation is your trusted partner in building the future
               — one solution at a time.
             </p>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="text-center mt-10">
+        <motion.div
+          className="text-center mt-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <button className="cursor-pointer text-white bg-gradient-to-r from-[#0859D7] to-[#4e9ff9] animated-gradient font-semibold rounded-3xl text-lg px-10 py-3 transition-all duration-300">
             More Details
           </button>
-          
-        </div>
+        </motion.div>
       </Container>
     </section>
   );
