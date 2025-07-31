@@ -68,7 +68,7 @@ const scrollToSection = (id) => {
 
             <div className="flex items-center gap-2 group cursor-pointer">
               <i className="fas fa-envelope vibrate-on-group-hover"></i>
-              <span>Vishal@vminnovations.co.nz</span>
+              <span>vishal@vminnovations.co.nz</span>
             </div>
 
             <span className="hidden md:block h-4 w-px bg-white" />
